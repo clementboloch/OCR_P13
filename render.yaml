@@ -1,9 +1,20 @@
 services:
   - type: web
-    name: OCR_P13
-    env: docker
-    repo: https://github.com/clementboloch/OCR_P13.git
-    branch: master
-    dockerfilePath: ./Dockerfile
-    buildCommand: docker build . -t myapp:${GIT_COMMIT}
-    startCommand: docker run -p 8000:8000 myapp:${GIT_COMMIT}
+    name: oc_lettings_site
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: oc_lettings_site.settings
+      - key: SECRET_KEY
+        value: {{ secret_value_for_django_secret_key }}
+      - key: DEBUG
+        value: 'False'
+      - key: ALLOWED_HOSTS
+        value: '{{ .Env.RENDER_EXTERNAL_HOSTNAME }}'
+
+    staticPublishPath: staticfiles
+    regions:
+      - oregon
