@@ -112,7 +112,6 @@ git commit -m "Description des modifications"</code>
 Pousser sur master : Envoyez vos commits sur la branche master du dépôt distant.
 
 <code>git push origin master</code>
-test
 
 #### 2. Fusionner dans master (si applicable)
 Si vous travaillez sur une branche de fonctionnalité ou de correctif et que vous souhaitez fusionner ces changements dans master :
