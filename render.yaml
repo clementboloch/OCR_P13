@@ -15,6 +15,6 @@ services:
       - key: ALLOWED_HOSTS
         value: '{{ .Env.RENDER_EXTERNAL_HOSTNAME }}'
 
-    staticPublishPath: staticfiles
+    staticPublishPath: static
     regions:
       - frankfurt
