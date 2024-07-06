@@ -77,5 +77,5 @@ jobs:
           -H 'Authorization: Bearer ${{ secrets.RENDER_API_KEY }}' \
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
-          -d '{"serviceId": "srv-cq4knvo8fa8c73fr5h3g"}' \s
+          -d '{"serviceId": "srv-cq4knvo8fa8c73fr5h3g"}' \
           https://api.render.com/v1/services/srv-cq4knvo8fa8c73fr5h3g/deploys
