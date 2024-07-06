@@ -1,12 +1,15 @@
 asgiref==3.8.1
 black==24.4.2
 certifi==2024.6.2
+charset-normalizer==3.3.2
 click==8.1.7
 coverage==7.5.3
 Django==3.0
 entrypoints==0.3
 exceptiongroup==1.2.1
 flake8==3.7.0
+gunicorn==22.0.0
+idna==3.7
 iniconfig==2.0.0
 mccabe==0.6.1
 mypy-extensions==1.0.0
