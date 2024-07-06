@@ -1,5 +1,10 @@
-from django.shortcuts import render
+import logging
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseServerError
 from profiles.models import Profile
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -15,9 +20,14 @@ def index(request):
     Returns:
         HttpResponse: The rendered HTML of the index page.
     """
-    profiles_list = Profile.objects.all()
-    context = {'profiles_list': profiles_list}
-    return render(request, 'profiles/index.html', context)
+    try:
+        profiles_list = Profile.objects.all()
+        context = {"profiles_list": profiles_list}
+        logger.debug("Index view accessed, retrieved profiles list.")
+        return render(request, "profiles/index.html", context)
+    except Exception as e:
+        logger.error(f"Error in index view: {e}")
+        return HttpResponseServerError("Internal server error")
 
 
 def profile(request, username):
@@ -34,6 +44,14 @@ def profile(request, username):
     Returns:
         HttpResponse: The rendered HTML of the profile detail page.
     """
-    profile = Profile.objects.get(user__username=username)
-    context = {'profile': profile}
-    return render(request, 'profiles/profile.html', context)
+    try:
+        profile = get_object_or_404(Profile, user__username=username)
+        context = {"profile": profile}
+        logger.debug(f"Profile view accessed, retrieved profile for user {username}.")
+        return render(request, "profiles/profile.html", context)
+    except Profile.DoesNotExist:
+        logger.warning(f"Profile for user {username} does not exist.")
+        return render(request, "404.html", status=404)
+    except Exception as e:
+        logger.error(f"Error in profile view: {e}")
+        return HttpResponseServerError("Internal server error")

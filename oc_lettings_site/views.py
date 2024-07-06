@@ -1,4 +1,9 @@
+import logging
 from django.shortcuts import render
+from django.http import HttpResponseServerError
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -13,4 +18,9 @@ def index(request):
     Returns:
         HttpResponse: The rendered HTML of the index page.
     """
-    return render(request, 'index.html')
+    try:
+        logger.debug("Index view accessed.")
+        return render(request, "index.html")
+    except Exception as e:
+        logger.error(f"Error in index view: {e}")
+        return HttpResponseServerError("Internal server error")

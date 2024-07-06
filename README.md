@@ -53,6 +53,11 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - `source venv/bin/activate`
 - `pytest`
 
+Pour générer le rapport de couverture:
+- `coverage run --source='.' manage.py test`
+- `coverage report`
+
+
 #### Base de données
 
 - `cd /path/to/Python-OC-Lettings-FR`
