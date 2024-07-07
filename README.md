@@ -120,14 +120,18 @@ Créez une Pull Request : Créez une Pull Request (PR) dans GitHub depuis votre 
 
 Revue de Code : Une fois la PR approuvée, fusionnez la PR dans master. 
 
+#### Tester En Ligne (Optionnel)
+Visitez le site à l'url suivante pour vérifier que tout est en ordre:<br>
+https://ocr-p13.onrender.com/
 
 #### Tester Localement (Optionnel)
 
 Pour tester localement avant le déploiement, vous pouvez récupérer l'image Docker depuis Docker Hub et lancer un conteneur localement (remplacer commit_hash par le hash du dernier commit):
 
 <code>
-docker pull clementboloch/ocr_p13:commit_hash <br>
-docker run -d -p 8000:8000 clementboloch/ocr_p13:commit_hash
+docker login <br>
+docker pull clementboloch/ocr_p13:latest <br>
+docker run -d -p 8000:8000 clementboloch/ocr_p13:latest
 </code>
 
 Accédez à http://localhost:8000 dans votre navigateur pour voir l'application.
