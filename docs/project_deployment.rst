@@ -1,7 +1,7 @@
 Project Deployment and Management Procedures
 ============================================
 
-The project API deployment and management procedures are outlined through a combination of the Continuous Integration/Continuous Deployment (CI/CD) pipeline, Docker containerization, and deployment to Render. Here's a summary of the procedures based on the provided workspace information:
+The project API deployment and management procedures are outlined through a combination of the Continuous Integration/Continuous Deployment (CI/CD) pipeline, Docker containerization, and deployment to Render.
 
 CI/CD Pipeline
 --------------
@@ -12,7 +12,8 @@ CI/CD Pipeline
 
 2. Containerization
    ----------------
-   If tests pass and the push is made to the master branch, a Docker image is built, tagged with the commit hash, and pushed to Docker Hub. This process is likely defined in the `Dockerfile` and possibly further configured in `docker-compose.yml`.
+   If tests pass and the push is made to the master branch, two Docker images are built, one tagged with the commit hash and the other one with "latest", and pushed to Docker Hub. The "latest" image will be replaced with the new "latest" tagged image at every push. 
+   This process is defined in the `Dockerfile`.
 
 3. Deployment to Production
    ------------------------
@@ -38,7 +39,7 @@ Deployment Options
 
 1. Pushing Changes to Master
    -------------------------
-   Commit and push changes locally, then push to the master branch of the remote repository. This triggers the CI/CD pipeline for deployment.
+   Commit changes locally, then push to the master branch of the remote repository. This triggers the CI/CD pipeline for deployment.
 
 2. Merging into Master
    -------------------
@@ -52,5 +53,3 @@ Additional Management Procedures
 - Linting and Unit Testing: Procedures for linting with `flake8` and running unit tests with `pytest` are documented, ensuring code quality and functionality before deployment.
 
 - Virtual Environment Setup: Detailed steps for setting up a Python virtual environment for local development are included in the `README.md`, ensuring a consistent development environment.
-
-This documentation provides a comprehensive overview of the deployment and management procedures for the project API, leveraging automation, containerization, and cloud deployment to streamline the process.

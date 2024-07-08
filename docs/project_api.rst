@@ -1,5 +1,5 @@
-Project Documentation
-======================
+Project API Description
+=======================
 
 This project is a Django application with three main components: `lettings`, `profiles`, and the main site `oc_lettings_site`. Each of these components contains a `views.py` file which handles HTTP requests for their respective parts of the application.
 
