@@ -56,7 +56,13 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/ocr_p13:${{ github.sha }} .
 
       - name: Tag Docker image
-        run: docker tag ${{ secrets.DOCKER_USERNAME }}/ocr_p13:${{ github.sha }} mydockerhubusername/oc_lettings_site:latest
+        run: docker tag ${{ secrets.DOCKER_USERNAME }}/ocr_p13:${{ github.sha }}
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/ocr_p13:latest .
+
+      - name: Tag Docker image
+        run: docker tag ${{ secrets.DOCKER_USERNAME }}/ocr_p13:latest
 
       - name: Push Docker image with commit SHA
         run: docker push ${{ secrets.DOCKER_USERNAME }}/ocr_p13:${{ github.sha }}
