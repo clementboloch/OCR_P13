@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project Deployment and Management Procedures &#8212; Orange County Lettings 2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=def86cc0" />
+    
+    <script src="_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Project Deployment and Management Procedures</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="project-deployment-and-management-procedures">
+<h1>Project Deployment and Management Procedures<a class="headerlink" href="#project-deployment-and-management-procedures" title="Link to this heading">¶</a></h1>
+<p>The project API deployment and management procedures are outlined through a combination of the Continuous Integration/Continuous Deployment (CI/CD) pipeline, Docker containerization, and deployment to Render. Here’s a summary of the procedures based on the provided workspace information:</p>
+<section id="ci-cd-pipeline">
+<h2>CI/CD Pipeline<a class="headerlink" href="#ci-cd-pipeline" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Upon each push, changes undergo a compilation and testing phase to ensure the code is functional, adheres to coding standards, and maintains a test coverage above 80%. This is automated through GitHub Actions as specified in the <cite>.github/workflows/ci.yml</cite> file.</p></li>
+<li><p>If tests pass and the push is made to the master branch, a Docker image is built, tagged with the commit hash, and pushed to Docker Hub. This process is likely defined in the <cite>Dockerfile</cite> and possibly further configured in <cite>docker-compose.yml</cite>.</p></li>
+<li><p>When an update is pushed to the master branch, the Docker image is retrieved and automatically deployed to the Render server to update the production site. This is automated through a deployment step in the GitHub Actions workflow, which uses a POST request to Render’s API for deploying the service, as seen in the deployment step in the <cite>.github/workflows/ci.yml</cite> file.</p></li>
+</ol>
+</section>
+<section id="docker-management">
+<h2>Docker Management<a class="headerlink" href="#docker-management" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Local Testing: Before deployment, the Docker image can be tested locally by pulling the latest image from Docker Hub and running a container. This is documented in the <cite>README.md</cite> under the section “Tester Localement (Optionnel)”.</p></li>
+<li><p>Commands for Local Testing:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login
+docker<span class="w"> </span>pull<span class="w"> </span>clementboloch/ocr_p13:latest
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>clementboloch/ocr_p13:latest
+</pre></div>
+</div>
+<p>Access the application at <cite>http://localhost:8000</cite> in a browser to verify functionality.</p>
+</li>
+</ul>
+</section>
+<section id="deployment-options">
+<h2>Deployment Options<a class="headerlink" href="#deployment-options" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Commit and push changes locally, then push to the master branch of the remote repository. This triggers the CI/CD pipeline for deployment.</p></li>
+<li><p>If working on a feature or fix branch, create a Pull Request (PR) on GitHub from your branch to master. Once the PR is approved and merged into master, it triggers the CI/CD pipeline for deployment.</p></li>
+</ol>
+</section>
+<section id="additional-management-procedures">
+<h2>Additional Management Procedures<a class="headerlink" href="#additional-management-procedures" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Database Management: Instructions for interacting with the SQLite database, including opening a shell session, connecting to the database, and querying tables, are provided in the <cite>README.md</cite>.</p></li>
+<li><p>Linting and Unit Testing: Procedures for linting with <cite>flake8</cite> and running unit tests with <cite>pytest</cite> are documented, ensuring code quality and functionality before deployment.</p></li>
+<li><p>Virtual Environment Setup: Detailed steps for setting up a Python virtual environment for local development are included in the <cite>README.md</cite>, ensuring a consistent development environment.</p></li>
+</ul>
+<p>This documentation provides a comprehensive overview of the deployment and management procedures for the project API, leveraging automation, containerization, and cloud deployment to streamline the process.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Project Deployment and Management Procedures</a><ul>
+<li><a class="reference internal" href="#ci-cd-pipeline">CI/CD Pipeline</a></li>
+<li><a class="reference internal" href="#docker-management">Docker Management</a></li>
+<li><a class="reference internal" href="#deployment-options">Deployment Options</a></li>
+<li><a class="reference internal" href="#additional-management-procedures">Additional Management Procedures</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/project_deployment.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Project Deployment and Management Procedures</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Clément Boloch.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    </div>
+  </body>
+</html>

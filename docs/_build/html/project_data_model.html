@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project Data Model &#8212; Orange County Lettings 2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=def86cc0" />
+    
+    <script src="_static/documentation_options.js?v=60dbed4a"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Project Data Model</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="project-data-model">
+<h1>Project Data Model<a class="headerlink" href="#project-data-model" title="Link to this heading">¶</a></h1>
+<p>The project database structure and data models are defined in Django models within the <cite>lettings</cite> and <cite>profiles</cite> apps. Here’s a summary based on the provided excerpts from the <cite>models.py</cite> files:</p>
+<section id="profiles-app">
+<h2>Profiles App<a class="headerlink" href="#profiles-app" title="Link to this heading">¶</a></h2>
+<section id="model-profile">
+<h3>Model: Profile<a class="headerlink" href="#model-profile" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>File</strong>: <cite>profiles/models.py</cite></p></li>
+<li><p><strong>Description</strong>: Represents a user profile that extends the built-in User model with additional information.</p></li>
+<li><p><strong>Fields</strong>:
+- <cite>user</cite>: A one-to-one relationship with the built-in User model. The profile is deleted if the user is deleted. This is implemented using <cite>OneToOneField</cite> pointing to Django’s <cite>User</cite> model.
+- <cite>favorite_city</cite>: An optional field to store the user’s favorite city, with a maximum length of 64 characters. This is implemented using <cite>CharField</cite>.</p></li>
+</ul>
+</section>
+</section>
+<section id="lettings-app">
+<h2>Lettings App<a class="headerlink" href="#lettings-app" title="Link to this heading">¶</a></h2>
+<section id="model-address">
+<h3>Model: Address<a class="headerlink" href="#model-address" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>File</strong>: <cite>lettings/models.py</cite> (Assumed based on migration and project structure, actual file content not provided)</p></li>
+<li><p><strong>Description</strong>: Represents an address.</p></li>
+<li><p><strong>Fields</strong>:
+- <cite>id</cite>: Primary key, auto-generated.
+- <cite>number</cite>: A positive integer field for the address number, validated to be at most 9999.
+- <cite>street</cite>: A string field for the street name, maximum length of 64 characters.
+- <cite>city</cite>: A string field for the city name, maximum length of 64 characters.
+- <cite>state</cite>: A string field for the state, maximum length of 2 characters, validated to have a minimum length of 2 characters.
+- <cite>zip_code</cite>: A positive integer field for the zip code, validated to be at most 99999.
+- <cite>country_iso_code</cite>: A string field for the country ISO code, maximum length of 3 characters, validated to have a minimum length of 3 characters.</p></li>
+</ul>
+</section>
+<section id="model-letting">
+<h3>Model: Letting<a class="headerlink" href="#model-letting" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>File</strong>: <cite>lettings/models.py</cite> (Assumed based on migration and project structure, actual file content not provided)</p></li>
+<li><p><strong>Description</strong>: Represents a letting.</p></li>
+<li><p><strong>Fields</strong>:
+- <cite>id</cite>: Primary key, auto-generated.
+- <cite>title</cite>: A string field for the letting title, maximum length of 256 characters.
+- <cite>address</cite>: A one-to-one relationship with the Address model. The letting is deleted if the address is deleted. This is implemented using <cite>OneToOneField</cite> pointing to the <cite>Address</cite> model.</p></li>
+</ul>
+<p>These models are used to structure the database tables and relationships for the application, allowing for the storage and retrieval of user profiles and letting information.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Project Data Model</a><ul>
+<li><a class="reference internal" href="#profiles-app">Profiles App</a><ul>
+<li><a class="reference internal" href="#model-profile">Model: Profile</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lettings-app">Lettings App</a><ul>
+<li><a class="reference internal" href="#model-address">Model: Address</a></li>
+<li><a class="reference internal" href="#model-letting">Model: Letting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/project_data_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Project Data Model</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Clément Boloch.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    </div>
+  </body>
+</html>
