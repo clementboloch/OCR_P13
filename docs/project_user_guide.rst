@@ -12,12 +12,14 @@ Getting Started
 
 Use Cases
 ---------
-### For Tenants
+For Tenants
+^^^^^^^^^^^
 - **Searching for Lettings**: Visit the `Letting` page to browse available properties.
 - **Viewing Property Details**: Click on any listing to view detailed information about the property.
 - **Listing Profiles**: Go to the `Profiles` page to view all user profiles. Click on profile for detailed information.
 
-### For Admins
+For Admins
+^^^^^^^^^^
 - **User Management**: Manage user profiles by creating, updating, or deleting them. Assign roles and permissions, and manage both profiles and lettings.
 
 Running Tests Locally (For Admins)
