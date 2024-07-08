@@ -88,4 +88,4 @@ jobs:
           -H 'Accept: application/json' \
           -H 'Content-Type: application/json' \
           -d '{"serviceId": "srv-cq4knvo8fa8c73fr5h3g"}' \
-          https://api.render.com/v1/services/srv-cq4knvo8fa8c73fr5h3g/deploys
+          https://api.render.com/v1/services/srv-cq4knvo8fa8c73fr5h3g&imgURL=clementboloch%2Focr_p13%40latest
