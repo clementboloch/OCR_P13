@@ -111,8 +111,15 @@ python<span class="w"> </span>manage.py<span class="w"> </span>migrate
 </pre></div>
 </div>
 </section>
+<section id="collect-static-files">
+<h2>5. Collect Static Files<a class="headerlink" href="#collect-static-files" title="Link to this heading">¶</a></h2>
+<p>Collect all the project’ static files. Run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>collectstatic
+</pre></div>
+</div>
+</section>
 <section id="run-the-development-server">
-<h2>1. Run the Development Server<a class="headerlink" href="#run-the-development-server" title="Link to this heading">¶</a></h2>
+<h2>6. Run the Development Server<a class="headerlink" href="#run-the-development-server" title="Link to this heading">¶</a></h2>
 <p>Start the Django development server to run the application locally. Run:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 </pre></div>
@@ -120,7 +127,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>migrate
 <p>This command starts the application and binds it to port 8000 on your local machine. You can access it by navigating to <cite>http://localhost:8000</cite> in your web browser.</p>
 </section>
 <section id="additional-commands">
-<h2>6. Additional Commands<a class="headerlink" href="#additional-commands" title="Link to this heading">¶</a></h2>
+<h2>7. Additional Commands<a class="headerlink" href="#additional-commands" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p><strong>Linting</strong>: To check the code quality, run:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>flake8
@@ -206,8 +213,9 @@ coverage<span class="w"> </span>report
 <li><a class="reference internal" href="#set-up-a-virtual-environment">2. Set Up a Virtual Environment</a></li>
 <li><a class="reference internal" href="#install-dependencies">3. Install Dependencies</a></li>
 <li><a class="reference internal" href="#run-database-migrations">4. Run Database Migrations</a></li>
-<li><a class="reference internal" href="#run-the-development-server">1. Run the Development Server</a></li>
-<li><a class="reference internal" href="#additional-commands">6. Additional Commands</a></li>
+<li><a class="reference internal" href="#collect-static-files">5. Collect Static Files</a></li>
+<li><a class="reference internal" href="#run-the-development-server">6. Run the Development Server</a></li>
+<li><a class="reference internal" href="#additional-commands">7. Additional Commands</a></li>
 </ul>
 </li>
 </ul>

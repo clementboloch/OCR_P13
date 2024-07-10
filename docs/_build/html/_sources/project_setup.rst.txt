@@ -88,7 +88,16 @@ Apply the necessary database migrations to set up the database schema. Run:
    python manage.py makemigrations
    python manage.py migrate
 
-1. Run the Development Server
+5. Collect Static Files
+-----------------------
+
+Collect all the project' static files. Run:
+
+.. code-block:: sh
+
+   python manage.py collectstatic
+
+6. Run the Development Server
 ------------------------------
 
 Start the Django development server to run the application locally. Run:
@@ -99,7 +108,7 @@ Start the Django development server to run the application locally. Run:
 
 This command starts the application and binds it to port 8000 on your local machine. You can access it by navigating to `http://localhost:8000` in your web browser.
 
-6. Additional Commands
+7. Additional Commands
 ----------------------
 
 - **Linting**: To check the code quality, run:
