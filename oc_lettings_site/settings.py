@@ -4,11 +4,13 @@ from pathlib import Path
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-sentry_sdk.init(
-    dsn="""
+SENTRY_DSN = """
         https://6f5a7800cab6ab8195c5073d9f53b019@o4506960278454272
         .ingest.us.sentry.io/4507431346438144
-    """,
+    """
+
+sentry_sdk.init(
+    dsn=os.environ.get('SENTRY_DSN', ''),
     integrations=[DjangoIntegration()],
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
@@ -17,6 +19,7 @@ sentry_sdk.init(
     # of sampled transactions.
     # We recommend adjusting this value in production.
     profiles_sample_rate=1.0,
+    send_default_pii=True
 )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
