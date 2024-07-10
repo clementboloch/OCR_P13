@@ -3,6 +3,15 @@ Project Setup
 
 To set up and run this project locally, follow these steps:
 
+Prerequisites
+-------------
+
+- A GitHub account with read access to this repository
+- Git CLI installed
+- SQLite3 CLI installed
+- Python interpreter, version 3.6 or higher
+
+
 1. Clone the Repository
 ------------------------
 
@@ -36,6 +45,30 @@ Activate the virtual environment:
 
      source env/bin/activate
 
+- Confirm that the `python` command executes the Python interpreter in the virtual environment:
+
+.. code-block:: sh
+
+ which python
+
+- Confirm that the Python interpreter version is 3.6 or higher:
+
+.. code-block:: sh
+
+ python --version
+
+- Confirm that the `pip` command executes the pip executable in the virtual environment:
+
+.. code-block:: sh
+
+ which pip
+
+- To deactivate the environment, use:
+
+.. code-block:: sh
+
+ deactivate
+
 3. Install Dependencies
 ------------------------
 
@@ -65,20 +98,52 @@ Start the Django development server to run the application locally. Run:
 
 This command starts the application and binds it to port 8000 on your local machine. You can access it by navigating to `http://localhost:8000` in your web browser.
 
-6. Running Tests Locally (Optional)
------------------------------------
+6. Additional Commands
+----------------------
 
-To test the application locally before deployment, you can pull the Docker image from Docker Hub and run a container locally.
-
-.. code-block:: sh
-
-   docker login
-   docker pull clementboloch/ocr_p13:latest
-   docker run -d -p 8000:8000 clementboloch/ocr_p13:latest
-
-Access `http://localhost:8000` in your browser to see the application.
-
-7. Deployment
--------------
-
-The project uses a CI/CD pipeline for deployment. Pushing changes to the master branch or merging a pull request into master triggers the pipeline, which automatically builds a Docker image, pushes it to Docker Hub, and deploys it to the production server on Render.
+- **Linting**: To check the code quality, run:
+  .. code-block:: sh
+  
+   flake8
+  
+- **Unit Tests**: To run unit tests, execute:
+  .. code-block:: sh
+  
+   pytest
+  
+- **Coverage Report**: To generate a coverage report, use:
+  .. code-block:: sh
+  
+   coverage run --source='.' manage.py test
+   coverage report
+  
+- **Database Operations**: To interact with the SQLite database:
+  - Open a SQLite shell session:
+   .. code-block:: sh
+    
+      sqlite3
+    
+  - Connect to the database:
+   .. code-block:: sh
+    
+      .open oc-lettings-site.sqlite3
+    
+  - Display tables in the database:
+   .. code-block:: sh
+    
+      .tables
+    
+  - Display columns in the profiles table:
+   .. code-block:: sh
+    
+      pragma table_info(profiles_profile);
+    
+  - Query the profiles table:
+   .. code-block:: sh
+    
+      select user_id, favorite_city from profiles_profile where favorite_city like 'B%';
+    
+  - Exit the SQLite session:
+   .. code-block:: sh
+    
+      .quit

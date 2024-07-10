@@ -10,7 +10,6 @@ Welcome to Orange County Lettings's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   project_quick_start
    project_setup
    project_user_guide
    project_data_model
