@@ -11,10 +11,10 @@ Components
 3. `profiles`
 
 oc_lettings_site API
-=====================
+--------------------
 
 Index View
-----------
+~~~~~~~~~~
 
 **File:** `oc_lettings_site/views.py`
 
@@ -30,11 +30,11 @@ Index View
 
 **Returns:** HTML of the index page.
 
-Lettings API
-============
+Lettings app API
+----------------
 
 Index View
-----------
+~~~~~~~~~~
 
 **File:** `lettings/views.py`
 
@@ -51,7 +51,7 @@ Index View
 **Returns:** HTML of the lettings index page.
 
 Letting Detail View
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 **File:** `lettings/views.py`
 
@@ -67,11 +67,11 @@ Letting Detail View
 
 **Returns:** HTML of the specific letting's detail page.
 
-Profiles API
-============
+Profiles app API
+----------------
 
 Profiles List View
-------------------
+~~~~~~~~~~~~~~~~~~
 
 **File:** `profiles/views.py`
 
