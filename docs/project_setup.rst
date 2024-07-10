@@ -47,27 +47,27 @@ Activate the virtual environment:
 
 - Confirm that the `python` command executes the Python interpreter in the virtual environment:
 
-.. code-block:: sh
+   .. code-block:: sh
 
- which python
+      which python
 
 - Confirm that the Python interpreter version is 3.6 or higher:
 
-.. code-block:: sh
+   .. code-block:: sh
 
- python --version
+      python --version
 
 - Confirm that the `pip` command executes the pip executable in the virtual environment:
 
-.. code-block:: sh
+   .. code-block:: sh
 
- which pip
+      which pip
 
 - To deactivate the environment, use:
 
-.. code-block:: sh
+   .. code-block:: sh
 
- deactivate
+      deactivate
 
 3. Install Dependencies
 ------------------------
