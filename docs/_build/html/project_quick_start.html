@@ -14,7 +14,8 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Setup" href="project_setup.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -22,6 +23,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="project_setup.html" title="Project Setup"
+             accesskey="N">next</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Quick Start</a></li> 
       </ul>
@@ -56,7 +60,7 @@
 </div></blockquote>
 <ul>
 <li><p>Clone the repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">OpenClassrooms</span><span class="o">-</span><span class="n">Student</span><span class="o">-</span><span class="n">Center</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="n">OC</span><span class="o">-</span><span class="n">Lettings</span><span class="o">-</span><span class="n">FR</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">clementboloch</span><span class="o">/</span><span class="n">OCR_P13</span>
 </pre></div>
 </div>
 </li>
@@ -72,11 +76,6 @@
 <ul>
 <li><p>Create a virtual environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
-</pre></div>
-</div>
-</li>
-<li><p>If you encounter errors related to a missing package on Ubuntu, install <cite>python3-venv</cite>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span>
 </pre></div>
 </div>
 </li>
@@ -114,7 +113,7 @@
 <ul>
 <li><p>Ensure you are in the project directory and the virtual environment is activated.</p></li>
 <li><p>Install the required dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">requirement</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </li>
@@ -164,12 +163,12 @@
 </div>
 </li>
 <li><p>Display columns in the profiles table:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">table_info</span><span class="p">(</span><span class="n">Python</span><span class="o">-</span><span class="n">OC</span><span class="o">-</span><span class="n">Lettings</span><span class="o">-</span><span class="n">FR_profile</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pragma</span> <span class="n">table_info</span><span class="p">(</span><span class="n">profiles_profile</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
 <li><p>Query the profiles table:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">favorite_city</span> <span class="kn">from</span> <span class="nn">Python</span><span class="o">-</span><span class="n">OC</span><span class="o">-</span><span class="n">Lettings</span><span class="o">-</span><span class="n">FR_profile</span> <span class="n">where</span> <span class="n">favorite_city</span> <span class="n">like</span> <span class="s1">&#39;B%&#39;</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">favorite_city</span> <span class="kn">from</span> <span class="nn">profiles_profile</span> <span class="n">where</span> <span class="n">favorite_city</span> <span class="n">like</span> <span class="s1">&#39;B%&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
@@ -181,7 +180,6 @@
 </ul>
 </li>
 </ul>
-<p>This quick start guide should help you get the Orange County Lettings site up and running on your local machine.</p>
 </section>
 </section>
 
@@ -204,6 +202,11 @@
 </li>
 </ul>
 
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="project_setup.html"
+                          title="next chapter">Project Setup</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -232,6 +235,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="project_setup.html" title="Project Setup"
+             >next</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Quick Start</a></li> 
       </ul>

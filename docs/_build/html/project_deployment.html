@@ -14,7 +14,9 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Used Technologies" href="project_techno.html" />
+    <link rel="prev" title="Project Data Model" href="project_data_model.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -22,6 +24,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="project_techno.html" title="Project Used Technologies"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="project_data_model.html" title="Project Data Model"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Deployment and Management Procedures</a></li> 
       </ul>
@@ -34,12 +42,13 @@
             
   <section id="project-deployment-and-management-procedures">
 <h1>Project Deployment and Management Procedures<a class="headerlink" href="#project-deployment-and-management-procedures" title="Link to this heading">¶</a></h1>
-<p>The project API deployment and management procedures are outlined through a combination of the Continuous Integration/Continuous Deployment (CI/CD) pipeline, Docker containerization, and deployment to Render. Here’s a summary of the procedures based on the provided workspace information:</p>
+<p>The project API deployment and management procedures are outlined through a combination of the Continuous Integration/Continuous Deployment (CI/CD) pipeline, Docker containerization, and deployment to Render.</p>
 <section id="ci-cd-pipeline">
 <h2>CI/CD Pipeline<a class="headerlink" href="#ci-cd-pipeline" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Upon each push, changes undergo a compilation and testing phase to ensure the code is functional, adheres to coding standards, and maintains a test coverage above 80%. This is automated through GitHub Actions as specified in the <cite>.github/workflows/ci.yml</cite> file.</p></li>
-<li><p>If tests pass and the push is made to the master branch, a Docker image is built, tagged with the commit hash, and pushed to Docker Hub. This process is likely defined in the <cite>Dockerfile</cite> and possibly further configured in <cite>docker-compose.yml</cite>.</p></li>
+<li><p>If tests pass and the push is made to the master branch, two Docker images are built, one tagged with the commit hash and the other one with “latest”, and pushed to Docker Hub. The “latest” image will be replaced with the new “latest” tagged image at every push.
+This process is defined in the <cite>Dockerfile</cite>.</p></li>
 <li><p>When an update is pushed to the master branch, the Docker image is retrieved and automatically deployed to the Render server to update the production site. This is automated through a deployment step in the GitHub Actions workflow, which uses a POST request to Render’s API for deploying the service, as seen in the deployment step in the <cite>.github/workflows/ci.yml</cite> file.</p></li>
 </ol>
 </section>
@@ -60,7 +69,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 <section id="deployment-options">
 <h2>Deployment Options<a class="headerlink" href="#deployment-options" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Commit and push changes locally, then push to the master branch of the remote repository. This triggers the CI/CD pipeline for deployment.</p></li>
+<li><p>Commit changes locally, then push to the master branch of the remote repository. This triggers the CI/CD pipeline for deployment.</p></li>
 <li><p>If working on a feature or fix branch, create a Pull Request (PR) on GitHub from your branch to master. Once the PR is approved and merged into master, it triggers the CI/CD pipeline for deployment.</p></li>
 </ol>
 </section>
@@ -71,7 +80,6 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 <li><p>Linting and Unit Testing: Procedures for linting with <cite>flake8</cite> and running unit tests with <cite>pytest</cite> are documented, ensuring code quality and functionality before deployment.</p></li>
 <li><p>Virtual Environment Setup: Detailed steps for setting up a Python virtual environment for local development are included in the <cite>README.md</cite>, ensuring a consistent development environment.</p></li>
 </ul>
-<p>This documentation provides a comprehensive overview of the deployment and management procedures for the project API, leveraging automation, containerization, and cloud deployment to streamline the process.</p>
 </section>
 </section>
 
@@ -94,6 +102,16 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 </li>
 </ul>
 
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="project_data_model.html"
+                          title="previous chapter">Project Data Model</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="project_techno.html"
+                          title="next chapter">Project Used Technologies</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -122,6 +140,12 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="project_techno.html" title="Project Used Technologies"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="project_data_model.html" title="Project Data Model"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Deployment and Management Procedures</a></li> 
       </ul>

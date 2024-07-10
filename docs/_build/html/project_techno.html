@@ -14,7 +14,8 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Project Deployment and Management Procedures" href="project_deployment.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -22,6 +23,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="project_deployment.html" title="Project Deployment and Management Procedures"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Used Technologies</a></li> 
       </ul>
@@ -34,32 +38,31 @@
             
   <section id="project-used-technologies">
 <h1>Project Used Technologies<a class="headerlink" href="#project-used-technologies" title="Link to this heading">¶</a></h1>
-<p>The project utilizes a variety of technologies and programming languages, as inferred from the workspace structure and provided code excerpts. Here’s a summary:</p>
+<p>The project utilizes a variety of technologies and programming languages.</p>
 <section id="programming-languages">
 <h2>Programming Languages<a class="headerlink" href="#programming-languages" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Python</strong>: The presence of <cite>.py</cite> files, such as in the <cite>lettings</cite>, <cite>oc_lettings_site</cite>, and <cite>profiles</cite> directories, indicates Python is used, likely for backend development. The README also mentions Python 3.6 or higher as a prerequisite.</p></li>
-<li><p><strong>CSS</strong>: The <cite>static/css/styles.css</cite> file suggests CSS is used for styling the web application.</p></li>
-<li><p><strong>SQL</strong>: The mention of SQLite3 CLI in the README as a prerequisite suggests SQL is used for database interactions.</p></li>
+<li><p><strong>Python</strong>: The primary programming language used for the development of the project’s backend. Python is utilized in creating Django views, models, and other core functionalities.</p></li>
+<li><p><strong>HTML</strong>: The standard markup language used for creating the structure of web pages. HTML provides the skeleton of the web pages, defining elements such as headings, paragraphs, links, and images.</p></li>
+<li><p><strong>CSS</strong>: Used for styling the web pages and enhancing the user interface of the project.</p></li>
+<li><p><strong>SQL</strong>: The language used for managing and querying the SQLite database, ensuring efficient data storage and retrieval.</p></li>
 </ul>
 </section>
 <section id="technologies-and-tools">
 <h2>Technologies and Tools<a class="headerlink" href="#technologies-and-tools" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Django</strong>: The structure of the project with apps like <cite>lettings</cite>, <cite>oc_lettings_site</cite>, and <cite>profiles</cite>, and the presence of files like <cite>models.py</cite>, <cite>views.py</cite>, and <cite>urls.py</cite> in these directories, strongly suggests the use of Django, a Python-based web framework.</p></li>
-<li><p><strong>Docker</strong>: The existence of <cite>Dockerfile</cite> and <cite>docker-compose.yml</cite> files, along with instructions in the README for using Docker and Docker Compose, indicates Docker is used for containerization.</p></li>
-<li><p><strong>Git</strong>: The <cite>.gitignore</cite> file and instructions in the README for using Git CLI for version control suggest Git is used for source code management.</p></li>
-<li><p><strong>GitHub Actions</strong>: The <cite>.github/workflows/</cite> directory suggests the use of GitHub Actions for continuous integration and deployment (CI/CD).</p></li>
-<li><p><strong>SQLite</strong>: The presence of <cite>oc-lettings-site.sqlite3</cite> and the mention of SQLite3 CLI in the README suggest SQLite is used as the database.</p></li>
-<li><p><strong>HTML5 Device Mockups</strong>: The comment in <cite>static/css/styles.css</cite> referencing <cite>html5-device-mockups</cite> suggests the use of this library for displaying device mockups in HTML5.</p></li>
+<li><p><strong>Django</strong>: A high-level Python web framework that encourages rapid development and clean, pragmatic design. Django is used to handle the backend logic, routing, and database interactions.</p></li>
+<li><p><strong>Docker</strong>: A tool designed to make it easier to create, deploy, and run applications by using containers. Docker ensures that the application runs smoothly in different environments by packaging it with all its dependencies.</p></li>
+<li><p><strong>Git</strong>: A distributed version control system used to track changes in the project’s source code. It allows multiple developers to collaborate efficiently.</p></li>
+<li><p><strong>GitHub Actions</strong>: A CI/CD tool that automates the process of testing and deploying the application. It helps ensure that the codebase remains stable and that new changes do not introduce bugs.</p></li>
+<li><p><strong>SQLite</strong>: A lightweight, disk-based database used for development and testing. It requires minimal setup and configuration, making it ideal for smaller projects and quick iterations.</p></li>
 </ul>
 </section>
 <section id="deployment">
 <h2>Deployment<a class="headerlink" href="#deployment" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Render</strong>: The README mentions deploying the Docker image on a server Render, indicating the use of Render for hosting the web application.</p></li>
+<li><p><strong>Render</strong>: A cloud platform used for deploying the web application. Render provides a seamless deployment experience, managing the infrastructure and scaling the application as needed.</p></li>
 </ul>
-<p>This summary is based on the provided workspace structure and code excerpts. The actual use of these technologies and languages might vary depending on other parts of the project not covered in the excerpts.</p>
 </section>
 </section>
 
@@ -81,6 +84,11 @@
 </li>
 </ul>
 
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="project_deployment.html"
+                          title="previous chapter">Project Deployment and Management Procedures</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -109,6 +117,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="project_deployment.html" title="Project Deployment and Management Procedures"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Used Technologies</a></li> 
       </ul>

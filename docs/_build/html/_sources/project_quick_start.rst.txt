@@ -23,7 +23,7 @@ Setup
    - Clone the repository:
      ::
      
-       git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git
+       git clone https://github.com/clementboloch/OCR_P13
 
 2. **Create a virtual environment**
    - Navigate to the project directory:
@@ -35,12 +35,7 @@ Setup
      ::
      
        python -m venv venv
-     
-   - If you encounter errors related to a missing package on Ubuntu, install `python3-venv`:
-     ::
-     
-       apt-get install python3-venv
-     
+       
    - Activate the virtual environment:
      ::
      
@@ -73,7 +68,7 @@ Running the Site Locally
 - Install the required dependencies:
   ::
   
-    pip install --requirement requirements.txt
+    pip install -r requirements.txt
   
 - Start the development server:
   ::
@@ -120,16 +115,14 @@ Additional Commands
   - Display columns in the profiles table:
     ::
     
-      pragma table_info(Python-OC-Lettings-FR_profile);
+      pragma table_info(profiles_profile);
     
   - Query the profiles table:
     ::
     
-      select user_id, favorite_city from Python-OC-Lettings-FR_profile where favorite_city like 'B%';
+      select user_id, favorite_city from profiles_profile where favorite_city like 'B%';
     
   - Exit the SQLite session:
     ::
     
       .quit
-
-This quick start guide should help you get the Orange County Lettings site up and running on your local machine.

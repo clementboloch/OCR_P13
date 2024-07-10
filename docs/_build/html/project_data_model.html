@@ -14,7 +14,9 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Deployment and Management Procedures" href="project_deployment.html" />
+    <link rel="prev" title="Orange County Lettings 2.0 User Guide" href="project_user_guide.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -22,6 +24,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="project_deployment.html" title="Project Deployment and Management Procedures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="project_user_guide.html" title="Orange County Lettings 2.0 User Guide"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Data Model</a></li> 
       </ul>
@@ -34,7 +42,7 @@
             
   <section id="project-data-model">
 <h1>Project Data Model<a class="headerlink" href="#project-data-model" title="Link to this heading">¶</a></h1>
-<p>The project database structure and data models are defined in Django models within the <cite>lettings</cite> and <cite>profiles</cite> apps. Here’s a summary based on the provided excerpts from the <cite>models.py</cite> files:</p>
+<p>The project database structure and data models are defined in Django models within the <cite>lettings</cite> and <cite>profiles</cite> apps.</p>
 <section id="profiles-app">
 <h2>Profiles App<a class="headerlink" href="#profiles-app" title="Link to this heading">¶</a></h2>
 <section id="model-profile">
@@ -43,8 +51,9 @@
 <li><p><strong>File</strong>: <cite>profiles/models.py</cite></p></li>
 <li><p><strong>Description</strong>: Represents a user profile that extends the built-in User model with additional information.</p></li>
 <li><p><strong>Fields</strong>:
-- <cite>user</cite>: A one-to-one relationship with the built-in User model. The profile is deleted if the user is deleted. This is implemented using <cite>OneToOneField</cite> pointing to Django’s <cite>User</cite> model.
-- <cite>favorite_city</cite>: An optional field to store the user’s favorite city, with a maximum length of 64 characters. This is implemented using <cite>CharField</cite>.</p></li>
+- <cite>id</cite>: Primary key, auto-generated.
+- <cite>user</cite>: A one-to-one relationship with the built-in User model. The profile is deleted if the user is deleted.
+- <cite>favorite_city</cite>: An optional field to store the user’s favorite city, with a maximum length of 64 characters.</p></li>
 </ul>
 </section>
 </section>
@@ -53,7 +62,7 @@
 <section id="model-address">
 <h3>Model: Address<a class="headerlink" href="#model-address" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><strong>File</strong>: <cite>lettings/models.py</cite> (Assumed based on migration and project structure, actual file content not provided)</p></li>
+<li><p><strong>File</strong>: <cite>lettings/models.py</cite></p></li>
 <li><p><strong>Description</strong>: Represents an address.</p></li>
 <li><p><strong>Fields</strong>:
 - <cite>id</cite>: Primary key, auto-generated.
@@ -68,14 +77,13 @@
 <section id="model-letting">
 <h3>Model: Letting<a class="headerlink" href="#model-letting" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><strong>File</strong>: <cite>lettings/models.py</cite> (Assumed based on migration and project structure, actual file content not provided)</p></li>
+<li><p><strong>File</strong>: <cite>lettings/models.py</cite></p></li>
 <li><p><strong>Description</strong>: Represents a letting.</p></li>
 <li><p><strong>Fields</strong>:
 - <cite>id</cite>: Primary key, auto-generated.
 - <cite>title</cite>: A string field for the letting title, maximum length of 256 characters.
-- <cite>address</cite>: A one-to-one relationship with the Address model. The letting is deleted if the address is deleted. This is implemented using <cite>OneToOneField</cite> pointing to the <cite>Address</cite> model.</p></li>
+- <cite>address</cite>: A one-to-one relationship with the Address model. The letting is deleted if the address is deleted (<cite>OneToOneField</cite> pointing to the <cite>Address</cite> model).</p></li>
 </ul>
-<p>These models are used to structure the database tables and relationships for the application, allowing for the storage and retrieval of user profiles and letting information.</p>
 </section>
 </section>
 </section>
@@ -105,6 +113,16 @@
 </ul>
 
   </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="project_user_guide.html"
+                          title="previous chapter">Orange County Lettings 2.0 User Guide</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="project_deployment.html"
+                          title="next chapter">Project Deployment and Management Procedures</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,6 +150,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="project_deployment.html" title="Project Deployment and Management Procedures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="project_user_guide.html" title="Orange County Lettings 2.0 User Guide"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Data Model</a></li> 
       </ul>
