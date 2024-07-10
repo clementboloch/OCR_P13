@@ -85,9 +85,10 @@ Apply the necessary database migrations to set up the database schema. Run:
 
 .. code-block:: sh
 
+   python manage.py makemigrations
    python manage.py migrate
 
-5. Run the Development Server
+1. Run the Development Server
 ------------------------------
 
 Start the Django development server to run the application locally. Run:
