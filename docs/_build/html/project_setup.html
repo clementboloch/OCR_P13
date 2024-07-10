@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Orange County Lettings 2.0 User Guide" href="project_user_guide.html" />
-    <link rel="prev" title="Project Quick Start" href="project_quick_start.html" /> 
+    <link rel="prev" title="Welcome to Orange County Lettings’s documentation!" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,7 +28,7 @@
           <a href="project_user_guide.html" title="Orange County Lettings 2.0 User Guide"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="project_quick_start.html" title="Project Quick Start"
+          <a href="index.html" title="Welcome to Orange County Lettings’s documentation!"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Setup</a></li> 
@@ -43,6 +43,15 @@
   <section id="project-setup">
 <h1>Project Setup<a class="headerlink" href="#project-setup" title="Link to this heading">¶</a></h1>
 <p>To set up and run this project locally, follow these steps:</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>A GitHub account with read access to this repository</p></li>
+<li><p>Git CLI installed</p></li>
+<li><p>SQLite3 CLI installed</p></li>
+<li><p>Python interpreter, version 3.6 or higher</p></li>
+</ul>
+</section>
 <section id="clone-the-repository">
 <h2>1. Clone the Repository<a class="headerlink" href="#clone-the-repository" title="Link to this heading">¶</a></h2>
 <p>First, clone the repository to your local machine using Git. Open your terminal and run:</p>
@@ -69,7 +78,29 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </pre></div>
 </div>
 </li>
+<li><p>Confirm that the <cite>python</cite> command executes the Python interpreter in the virtual environment:</p></li>
 </ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>python
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Confirm that the Python interpreter version is 3.6 or higher:</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Confirm that the <cite>pip</cite> command executes the pip executable in the virtual environment:</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>pip
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To deactivate the environment, use:</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
 </section>
 <section id="install-dependencies">
 <h2>3. Install Dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">¶</a></h2>
@@ -93,19 +124,74 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </div>
 <p>This command starts the application and binds it to port 8000 on your local machine. You can access it by navigating to <cite>http://localhost:8000</cite> in your web browser.</p>
 </section>
-<section id="running-tests-locally-optional">
-<h2>6. Running Tests Locally (Optional)<a class="headerlink" href="#running-tests-locally-optional" title="Link to this heading">¶</a></h2>
-<p>To test the application locally before deployment, you can pull the Docker image from Docker Hub and run a container locally.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login
-docker<span class="w"> </span>pull<span class="w"> </span>clementboloch/ocr_p13:latest
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>clementboloch/ocr_p13:latest
+<section id="additional-commands">
+<h2>6. Additional Commands<a class="headerlink" href="#additional-commands" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p><strong>Linting</strong>: To check the code quality, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>flake8
 </pre></div>
 </div>
-<p>Access <cite>http://localhost:8000</cite> in your browser to see the application.</p>
-</section>
-<section id="deployment">
-<h2>7. Deployment<a class="headerlink" href="#deployment" title="Link to this heading">¶</a></h2>
-<p>The project uses a CI/CD pipeline for deployment. Pushing changes to the master branch or merging a pull request into master triggers the pipeline, which automatically builds a Docker image, pushes it to Docker Hub, and deploys it to the production server on Render.</p>
+</li>
+<li><p><strong>Unit Tests</strong>: To run unit tests, execute:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</li>
+<li><p><strong>Coverage Report</strong>: To generate a coverage report, use:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>coverage<span class="w"> </span>run<span class="w"> </span>--source<span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="w"> </span>manage.py<span class="w"> </span><span class="nb">test</span>
+coverage<span class="w"> </span>report
+</pre></div>
+</div>
+</li>
+<li><p><strong>Database Operations</strong>: To interact with the SQLite database:
+- Open a SQLite shell session:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sqlite3
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Connect to the database:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.open<span class="w"> </span>oc-lettings-site.sqlite3
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Display tables in the database:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.tables
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Display columns in the profiles table:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pragma<span class="w"> </span>table_info<span class="o">(</span>profiles_profile<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Query the profiles table:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span>user_id,<span class="w"> </span>favorite_city<span class="w"> </span>from<span class="w"> </span>profiles_profile<span class="w"> </span>where<span class="w"> </span>favorite_city<span class="w"> </span>like<span class="w"> </span><span class="s1">&#39;B%&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Exit the SQLite session:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>.quit
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </section>
 </section>
 
@@ -120,13 +206,13 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Project Setup</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#clone-the-repository">1. Clone the Repository</a></li>
 <li><a class="reference internal" href="#set-up-a-virtual-environment">2. Set Up a Virtual Environment</a></li>
 <li><a class="reference internal" href="#install-dependencies">3. Install Dependencies</a></li>
 <li><a class="reference internal" href="#run-database-migrations">4. Run Database Migrations</a></li>
 <li><a class="reference internal" href="#run-the-development-server">5. Run the Development Server</a></li>
-<li><a class="reference internal" href="#running-tests-locally-optional">6. Running Tests Locally (Optional)</a></li>
-<li><a class="reference internal" href="#deployment">7. Deployment</a></li>
+<li><a class="reference internal" href="#additional-commands">6. Additional Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -134,8 +220,8 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="project_quick_start.html"
-                          title="previous chapter">Project Quick Start</a></p>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to Orange County Lettings’s documentation!</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -173,7 +259,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
           <a href="project_user_guide.html" title="Orange County Lettings 2.0 User Guide"
              >next</a> |</li>
         <li class="right" >
-          <a href="project_quick_start.html" title="Project Quick Start"
+          <a href="index.html" title="Welcome to Orange County Lettings’s documentation!"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Orange County Lettings 2.0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Project Setup</a></li> 

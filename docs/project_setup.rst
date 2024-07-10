@@ -102,16 +102,19 @@ This command starts the application and binds it to port 8000 on your local mach
 ----------------------
 
 - **Linting**: To check the code quality, run:
+  
   .. code-block:: sh
   
    flake8
   
 - **Unit Tests**: To run unit tests, execute:
+  
   .. code-block:: sh
   
    pytest
   
 - **Coverage Report**: To generate a coverage report, use:
+  
   .. code-block:: sh
   
    coverage run --source='.' manage.py test
@@ -119,31 +122,37 @@ This command starts the application and binds it to port 8000 on your local mach
   
 - **Database Operations**: To interact with the SQLite database:
   - Open a SQLite shell session:
+   
    .. code-block:: sh
     
       sqlite3
     
   - Connect to the database:
+   
    .. code-block:: sh
     
       .open oc-lettings-site.sqlite3
     
   - Display tables in the database:
+   
    .. code-block:: sh
     
       .tables
     
   - Display columns in the profiles table:
+   
    .. code-block:: sh
     
       pragma table_info(profiles_profile);
     
   - Query the profiles table:
+   
    .. code-block:: sh
     
       select user_id, favorite_city from profiles_profile where favorite_city like 'B%';
     
   - Exit the SQLite session:
+   
    .. code-block:: sh
     
       .quit
